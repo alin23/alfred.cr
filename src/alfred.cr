@@ -8,15 +8,7 @@ module Alfred
   end
 
   def self.generate_json(items : Array(Item))
-    json = String.build do |io|
-      io.json_object do |object|
-        object.field "items" do
-          io.json_array do |array|
-            items.each { |item| array << item }
-          end
-        end
-      end
-    end
+    {"items" => items}.to_json
   end
 
   def self.output(items : Array(Item))

@@ -5,6 +5,7 @@ module Alfred
     JSON.mapping(
       uid: String | Nil,
       title: String,
+      match: String?,
       subtitle: String | Nil,
       arg: String | ComplexArg | Nil,
       icon: Icon | Nil,
