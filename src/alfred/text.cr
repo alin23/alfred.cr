@@ -1,9 +1,10 @@
+require "json"
+
 module Alfred
   class Text
-    JSON.mapping(
-      copy: String | Nil,
-      largetype: String | Nil,
-    )
+    include JSON::Serializable
+    property copy : String?
+    property largetype : String?
 
     def initialize; end
 

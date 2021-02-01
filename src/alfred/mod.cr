@@ -1,10 +1,11 @@
+require "json"
+
 module Alfred
   class Mod
-    JSON.mapping(
-      valid: Bool,
-      arg: String,
-      subtitle: String | Nil,
-    )
+    include JSON::Serializable
+    property valid : Bool
+    property arg : String
+    property subtitle : String?
 
     def initialize
       @arg = ""

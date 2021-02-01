@@ -2,12 +2,10 @@ require "json"
 
 module Alfred
   class ComplexArg
-    # FIXME: This has to be wrapped in {"alfredworkflow": ComplexArg}, but how?
+    include JSON::Serializable
 
-    JSON.mapping(
-      arg: String | Nil,
-      variables: Hash(String, String) | Nil,
-    )
+    property arg : String?
+    property variables : Hash(String, String)?
 
     def initialize; end
 

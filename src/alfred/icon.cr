@@ -1,9 +1,10 @@
+require "json"
+
 module Alfred
   class Icon
-    JSON.mapping(
-      type: String | Nil,
-      path: String,
-    )
+    include JSON::Serializable
+    property type : String?
+    property path : String
 
     def initialize
       @path = ""

@@ -2,20 +2,19 @@ require "json"
 
 module Alfred
   class Item
-    JSON.mapping(
-      uid: String | Nil,
-      title: String,
-      match: String?,
-      subtitle: String | Nil,
-      arg: String | ComplexArg | Nil,
-      icon: Icon | Nil,
-      valid: Bool | Nil,
-      autocomplete: String | Nil,
-      type: String | Nil,
-      mods: Hash(String, Mod) | Nil,
-      text: Text | Nil,
-      quicklookurl: String | Nil,
-    )
+    include JSON::Serializable
+    property uid : String?
+    property title : String
+    property subtitle : String?
+    property match : String?
+    property arg : String | ComplexArg?
+    property icon : Icon?
+    property valid : Bool?
+    property autocomplete : String?
+    property type : String?
+    property mods : Hash(String, Mod)?
+    property text : Text?
+    property quicklookurl : String?
 
     def initialize
       @title = ""
