@@ -52,7 +52,7 @@ describe "Alfred#generate_json" do
     Alfred.generate_json(item).should eq(json)
   end
 
-  pending "should return correct JSON for item with complex argument" do
+  it "should return correct JSON for item with complex argument" do
     item = Alfred::Item.new do |i|
       i.arg = Alfred::ComplexArg.new do |c|
         c.arg = "complex argument"
@@ -87,7 +87,7 @@ describe "Alfred#debug" do
   end
 
   it "should be true if debug flag is set" do
-    ENV["debug"] = "1"
+    ENV["alfred_debug"] = "1"
     Alfred.debug.should eq(true)
     ENV.delete("debug") # just in case
   end
